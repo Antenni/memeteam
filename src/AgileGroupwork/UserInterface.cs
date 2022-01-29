@@ -47,6 +47,23 @@ namespace MemeTeamPro
                 if (command == "3")
                 {
                     Console.WriteLine("Here are all the scores:");
+                    
+                    // Open a database connection
+                    SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=MyDatabase.sqlite;Version=3;");
+                    m_dbConnection.Open();
+
+
+                    // Read the data from the database
+                    string sql = "SELECT * FROM Highscores ORDER BY score DESC";
+                    SQLiteCommand command1 = new SQLiteCommand(sql, m_dbConnection);
+                    SQLiteDataReader reader = command1.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Console.WriteLine("Name: " + reader["name"] + "\tScore: " + reader["score"]);
+                    }
+
+                    // Close the connection
+                    m_dbConnection.Close();
                 }
             }
         }
