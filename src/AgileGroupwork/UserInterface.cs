@@ -2,6 +2,8 @@ namespace MemeTeamPro
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.SQLite;
+    
     public class UserInterface
     {
         public UserInterface()
