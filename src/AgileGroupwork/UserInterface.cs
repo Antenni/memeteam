@@ -61,7 +61,7 @@ namespace MemeTeamPro
                     SQLiteDataReader reader = command1.ExecuteReader();
                     while (reader.Read())
                     {
-                        Console.WriteLine("Name: " + reader["name"] + "\tScore: " + reader["score"]);
+                        Console.WriteLine("Name: " + reader["name"] + "\tScore: " + reader["score"] + "\tType of score: " + reader["type"]);
                     }
 
                     // Close the connection
